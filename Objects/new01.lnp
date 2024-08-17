@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\uplode.obj" 
+TO ".\Objects\new01" 
+PRINT(".\Listings\new01.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 

@@ -1,0 +1,455 @@
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main
+                    -.lst) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          //#define USING_K1 
+   2          
+   3          #include <reg51.h>
+   4          #include <intrins.h>
+   5          //#include "DigitalNumber.h"
+   6          //#include "Buttons.h"
+   7          #include "Music.h"
+   8          
+   9          sbit SER = P3^4;
+  10          sbit SCK = P3^6;
+  11          sbit RCK = P3^5;
+  12          
+  13          void main(){
+  14   1        while(1);
+  15   1      }
+  16          
+  17          
+  18          /*
+  19          void SendTo595(unsigned char byteData){   
+  20            char i=0;
+  21            for(;i<8;i++){
+  22              SER = byteData>>7;         
+  23              byteData= byteData<<1;      
+  24              SCK = 1;
+  25              _nop_();
+  26              _nop_();
+  27              SCK = 0;     
+  28            }
+  29            RCK = 1;
+  30            _nop_(); 
+  31            _nop_();
+  32            RCK = 0; 
+  33          }
+  34          
+  35          void main(){
+  36            SendTo595(0xF5);
+  37            P0 = 0x0F;
+  38            P2 = 0x0F;
+  39            while (1);
+  40          }
+  41          
+  42          */
+  43          /*
+  44          void main(){
+  45            while (1){
+  46              Player(low1, 500);
+  47              Player(low2, 500);
+  48              Player(low3, 500);
+  49              Player(low4, 500);
+  50              Player(low5, 500);
+  51              Player(low6, 500);
+  52              Player(low7, 500);
+  53              
+  54              
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 2   
+
+  55            }
+  56          }
+  57          */ 
+  58          /*
+  59          void Delay250ms()   //@11.0592MHz
+  60          {
+  61            unsigned char i, j, k;
+  62          
+  63            _nop_();
+  64            i = 2;
+  65            j = 193;
+  66            k = 57;
+  67            do
+  68            {
+  69              do
+  70              {
+  71                while (--k);
+  72              } while (--j);
+  73            } while (--i);
+  74          }
+  75          
+  76          
+  77          void Delay500ms()   //@11.0592MHz
+  78          {
+  79            unsigned char i, j, k;
+  80          
+  81            _nop_();
+  82            i = 4;
+  83            j = 129;
+  84            k = 119;
+  85            do
+  86            {
+  87              do
+  88              {
+  89                while (--k);
+  90              } while (--j);
+  91            } while (--i);
+  92          }
+  93          
+  94          
+  95          void main(){
+  96            unsigned char i = 0;
+  97            for (;i<3;i++){
+  98              Player(hig3, 500);
+  99              Player(mid7, 250);
+ 100              Player(mid6, 500);
+ 101              Player(hig3, 750);
+ 102            }
+ 103            Player(hig3, 500);
+ 104            Player(mid7, 250);
+ 105            Player(mid6,1250);
+ 106            for (i=0;i<3;i++){
+ 107              Player(hig3, 500);
+ 108              Player(mid7, 250);
+ 109              Player(mid6, 500);
+ 110              Player(hig3, 750);
+ 111            } 
+ 112            Player(hig3,1000);
+ 113            Player(mid7,1000);
+ 114          
+ 115            Delay500ms();
+ 116            Player(low6, 250);
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 3   
+
+ 117            Player(low7, 250);
+ 118            Player(mid1, 500);
+ 119            Player(low7, 250);
+ 120            Player(mid1, 500);
+ 121            Player(low6, 250);
+ 122            Player(low5, 250);
+ 123            Player(low4,1250);
+ 124            
+ 125            Delay500ms();
+ 126            Player(low6, 250);
+ 127            Player(low7, 250);
+ 128            Player(mid1, 500);
+ 129            Player(low7, 250);
+ 130            Player(mid1, 500);
+ 131            Player(mid3, 250);
+ 132            Player(mid4, 250);
+ 133            Player(mid3,1250);
+ 134            
+ 135            Delay500ms();
+ 136            Player(low6, 250);
+ 137            Player(low7, 250);
+ 138            Player(mid1, 500);
+ 139            Player(low7, 250);
+ 140            Player(mid1, 500);
+ 141            Player(low6, 250);
+ 142            Player(low5, 250);
+ 143            Player(low4,1000);
+ 144            Player(low4, 250);
+ 145            Player(low5, 750);
+ 146            Player(low6,2250);
+ 147          
+ 148            Delay250ms();
+ 149            Player(low6, 250);//ki
+ 150            Player(low7, 250);//mi
+ 151            Player(low6, 250);//ga
+ 152            Player(mid1, 500);//o
+ 153            Player(mid2, 250);//si
+ 154            Player(mid1, 500);//e
+ 155            Player(mid3, 500);//te
+ 156            Player(mid4, 500);//ku
+ 157            Player(mid1, 500);//re
+ 158            Player(mid4, 500);//ta
+ 159            Player(mid5, 500);//n
+ 160            Player(mid6, 500);//da
+ 161            Player(mid7, 500);//mou
+ 162            Player(mid6, 500);//ko
+ 163            Player(mid4, 500);//wa
+ 164            Player(mid1, 500);//ku
+ 165            Player(mid4, 500);//na
+ 166            Player(mid4, 500);//i
+ 167            Player(mid6, 250);//ni
+ 168            Player(mid7, 500);//gi
+ 169            Player(hig1, 500);//i
+ 170            Player(mid5, 250);//te
+ 171            Player(mid4, 500);//i
+ 172            Player(mid2, 500);//te
+ 173            Player(mid1, 500);//ku
+ 174            Player(mid4, 250);//re
+ 175            Player(mid4, 750);//ta
+ 176            Player(mid6, 250);//ko
+ 177            Player(mid7, 500);//no
+ 178            Player(hig1, 500);//te
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 4   
+
+ 179            Player(mid5, 250);//wo
+ 180            Player(mid4, 500);//ha
+ 181            Player(mid3, 500);//na
+ 182            Player(mid4, 500);//sa
+ 183            Player(mid6, 250);//na
+ 184            Player(mid7, 750);//kya
+ 185            Player(mid6, 250);//da
+ 186            Player(mid7, 500);//me
+ 187            Player(hig1,2000);//da
+ 188            
+ 189            
+ 190            for(i=0;i<2;i++){
+ 191              Delay250ms();
+ 192              Player(mid1, 250);
+ 193              Player(low6, 500);
+ 194              Player(low7,1250);
+ 195            }
+ 196            
+ 197            Player(low4,1000);
+ 198            Delay250ms();
+ 199            Player(mid6, 500);//hi
+ 200            Player(mid5, 250);//to
+ 201            Player(mid6, 500);//ri
+ 202            Player(mid4, 250);//de
+ 203            Player(mid3, 500);//mo
+ 204            Player(mid6, 500);//yu
+ 205            Player(mid7, 500);//ku
+ 206            Player(hig1,1000);//yo
+ 207            Player(mid6, 500);
+ 208            Player(mid5, 250);
+ 209            Player(mid6, 500);
+ 210            Player(mid3, 250);
+ 211            Player(mid2, 500);
+ 212            Player(mid6, 500);
+ 213            Player(mid7, 500);
+ 214            Player(hig1,1000);
+ 215            Player(mid6, 500);
+ 216            Player(mid5, 250);
+ 217            Player(mid6, 500);
+ 218            Player(mid3, 250);
+ 219            Player(mid2, 500);
+ 220            Player(mid6, 500);
+ 221            Player(mid7, 500);
+ 222            Player(hig1, 750);
+ 223            Player(mid5, 250);
+ 224            Player(mid6, 500);
+ 225            Player(mid5, 500);
+ 226            Player(mid2, 500);
+ 227            Player(mid1, 500);
+ 228            Player(low7, 500);
+ 229            Player(low6, 250);
+ 230            Player(low5, 250);
+ 231            Player(low5, 500);
+ 232            /*
+ 233            Delay250ms();
+ 234            Player(mid6, 500);
+ 235            Player(mid5, 250);
+ 236            Player(mid6, 500);
+ 237            Player(mid3, 250);
+ 238            Player(mid2, 500);
+ 239            Player(mid6, 500);
+ 240            Player(mid7, 500);
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 5   
+
+ 241            Player(hig1,1000);
+ 242            Player(mid6, 500);
+ 243            Player(mid5, 250);
+ 244            Player(mid6, 500);
+ 245            Player(mid3, 250);
+ 246            Player(mid3, 500);
+ 247            Player(mid6, 500);
+ 248            Player(mid7, 500);
+ 249            Player(hig1, 250);
+ 250            Player(mid6, 750);
+ 251            Player(mid6, 750);
+ 252            Player(mid5, 250);
+ 253            Player(mid6, 500);
+ 254            Player(mid3, 250);
+ 255            Player(mid2, 500);
+ 256            Player(mid6, 500);
+ 257            Player(mid7, 500);
+ 258            Player(hig1, 750);
+ 259            Player(mid6, 250);
+ 260            Player(mid7, 500);
+ 261            Player(mid6, 500);
+ 262            Player(mid2, 500);
+ 263            Player(mid1, 500);
+ 264            Player(low7, 500);
+ 265            Player(low7, 500);
+ 266            Player(low6, 750);
+ 267            
+ 268            Delay250ms();
+ 269            Player(low6, 500);
+ 270            Player(low5, 250);
+ 271            Player(low6, 500);
+ 272            Player(low3, 250);
+ 273            Player(low2, 500);
+ 274            Player(low6, 500);
+ 275            Player(low7, 500);
+ 276            Player(mid1,1000);
+ 277            Player(low6, 500);
+ 278            Player(low5, 250);
+ 279            Player(low6, 500);
+ 280            Player(low3, 250);
+ 281            Player(low2, 500);
+ 282            Player(low6, 500);
+ 283            Player(low7, 500);
+ 284            Player(mid1,1000);
+ 285            Player(low6, 500);
+ 286            Player(low5, 250);
+ 287            Player(low6, 500);
+ 288            Player(low3, 250);
+ 289            Player(low2, 500);
+ 290            Player(low6, 500);
+ 291            Player(low7, 500);
+ 292            Player(mid1, 750);
+ 293            Player(low6, 250);
+ 294            Player(low7, 500);
+ 295            Player(low6, 500);
+ 296            Player(low2, 500);
+ 297            Player(low1, 500);
+ 298            Player(llow7,500);
+ 299            Player(llow7,500);
+ 300            Player(llow6,250);
+ 301            Player(llow6,500);
+ 302            
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 6   
+
+ 303            Delay500ms();
+ 304            Player(mid7, 500);
+ 305            Player(mid6, 250);
+ 306            Player(mid7, 500);
+ 307            Player(mid4, 250);
+ 308            Player(mid3, 500);
+ 309            Player(mid7, 500);
+ 310            Player(hig1, 250+250);
+ 311            Player(hig2,1000);
+ 312            Player(mid7, 500);
+ 313            Player(mid6, 250);
+ 314            Player(mid7, 500);
+ 315            Player(mid4, 250);
+ 316            Player(mid3, 500);
+ 317            Player(mid7, 500);
+ 318            Player(hig1,1000);
+ 319            Player(mid7, 500);
+ 320            Player(mid6, 250);
+ 321            Player(mid7, 500);
+ 322            Player(mid4, 250);
+ 323            Player(mid3, 500);
+ 324            Player(mid7, 500);
+ 325            Player(hig1, 500);
+ 326            Player(hig2, 750);
+ 327            Player(mid7, 250);
+ 328            Player(hig1, 500);
+ 329            Player(mid7, 500);
+ 330            Player(mid3, 500);
+ 331            Player(mid2, 500);
+ 332            Player(mid1, 500);
+ 333            Player(mid1, 250+250);
+ 334            Player(low7, 250);
+ 335            Player(low7, 250);
+ 336            
+ 337            Delay250ms();
+ 338            Player(mid7, 500);
+ 339            Player(mid6, 250);
+ 340            Player(mid7, 500);
+ 341            Player(mid4, 250);
+ 342            Player(mid3, 500);
+ 343            Player(mid4, 500);
+ 344            Player(hig1, 500);
+ 345            Player(hig2,1000);
+ 346            Player(mid7, 500);
+ 347            Player(mid6, 250);
+ 348            Player(mid7, 500);
+ 349            Player(mid4, 250);
+ 350            Player(mid3, 500);
+ 351            Player(mid4, 500);
+ 352            Player(hig1, 500);
+ 353            Player(hig2, 250);
+ 354            Player(mid7, 750);
+ 355            Player(mid7, 500);
+ 356            Player(mid6, 250);
+ 357            Player(mid7, 500);
+ 358            Player(mid4, 250);
+ 359            Player(mid3, 500);
+ 360            Player(mid7, 500);
+ 361            Player(hig1, 250+250);
+ 362            Player(hig2, 750);
+ 363            Player(mid7, 250);
+ 364            Player(hig1, 500);
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 7   
+
+ 365            Player(mid7, 500);
+ 366            Player(mid3, 500);
+ 367            Player(mid2, 500);
+ 368            Player(mid1, 500);
+ 369            Player(mid1, 500);
+ 370            Player(low7, 250);
+ 371            Player(low7, 500);
+ 372            
+ 373            Delay250ms();
+ 374            Player(low7, 500);
+ 375            Player(low6, 250);
+ 376            Player(low7, 500);
+ 377            Player(low4, 250);
+ 378            Player(low3, 250);
+ 379            Player(llow7,250);
+ 380            Player(low4, 250);
+ 381            Player(low3, 250);
+ 382            Player(mid1, 500);
+ 383            Player(mid2, 750);
+ 384            Player(low7, 250);
+ 385            Player(mid1, 500);
+ 386            Player(low7, 250+500);
+ 387            Player(low3, 500);
+ 388            Player(low2, 500);
+ 389            Player(low1, 500);
+ 390            Player(low7,2000);
+ 391            
+ 392            
+ 393            
+ 394            
+ 395            while(1);
+ 396            //Player(high7, 1000);
+ 397          
+ 398          }
+ 399          
+ 400          
+ 401          
+ 402          
+ 403          
+ 404          
+ 405          */
+ 406          
+ 407          
+ 408          
+ 409          
+ 410          
+ 411          
+ 412          
+ 413          
+ 414          
+ 415          
+ 416          
+ 417          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    369    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2       5
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.7.0   MAIN                                                              04/15/2024 22:06:29 PAGE 8   
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
